@@ -31,6 +31,10 @@ gem "rake", "~> 13.0"
 # Provides functionality to interact with a SQLite3 database
 gem "sqlite3", "~> 1.4"
 
+# Used to make network requests
+# https://github.com/rest-client/rest-client
+gem "rest-client", "~> 2.1"
+
 # Require all files in a folder
 gem "require_all", "~> 3.0"
 
