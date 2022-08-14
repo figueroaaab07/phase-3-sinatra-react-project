@@ -1,13 +1,15 @@
 require 'date'
 require 'pry'
+
 puts "🌱 Seeding spices..."
+puts "Patience please if it is the initial load, give yourself time to prepare a snack, and enjoy it!"
+
 # Seed your database here
 start_date = Apod.last == nil ? "1995-06-16" : (Date.parse(Apod.last.date) + 1.day).strftime("%F")
-# start_date = "1995-06-16"
-end_date = (Date.parse(start_date) + 6.months).strftime("%F")
+end_date = (Date.parse(start_date) + 6.months) <= Date.today ? (Date.parse(start_date) + 6.months).strftime("%F") : Date.today.strftime("%F")
 
 while Date.parse(start_date) <= Date.today do
-
+binding.pry
   responses = RestClient.get "https://api.nasa.gov/planetary/apod?start_date=#{start_date}&end_date=#{end_date}&api_key=ousVxXPBdjpMGLhVTASFubjk0WQNgZ8OpKuBMzkg"
 
   apod_hashes = JSON.parse(responses)
