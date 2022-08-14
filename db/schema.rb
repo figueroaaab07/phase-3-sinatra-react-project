@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_12_001347) do
+ActiveRecord::Schema.define(version: 2022_08_13_173902) do
 
   create_table "apods", force: :cascade do |t|
     t.string "date"
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 2022_08_12_001347) do
     t.string "service_version"
     t.string "title"
     t.string "url"
+  end
+
+  create_table "user_apods", force: :cascade do |t|
+    t.string "rating"
+    t.string "user_id"
+    t.string "apod_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "birth_date"
   end
 
 end
