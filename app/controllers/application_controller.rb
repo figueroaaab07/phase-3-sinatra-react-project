@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
   # Read - Get Request Users
   get '/users' do
     users = User.all 
-    users.to_json(include: [:apods])
+    users.to_json
   end
 
   # Read - Get Request User by ID
